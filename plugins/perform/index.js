@@ -23,7 +23,7 @@ class PerformStart {
         // Phrases that will trigger our intent. Note that they will not
         // need to be matched exactly in order for the intent to run.
         phrases: [
-          'Give her a warm welcome to Perform',
+          'Please welcome people at Perform Paris',
         ],
 
         // Lifecycle Events are friendly names for the steps that an intent
@@ -47,7 +47,7 @@ class PerformStart {
     this.hooks = {
       'performStart:gatherData': (exchange, context) => null,
       'performStart:respond': (exchange, context) => {
-        const resp = 'Thank you! Its great to be here with such fantastic Dynatrace customers.';
+        const resp = 'bohnjour ay bee en venoo a Perform Paris. Its great to be here with such fantastic Dynatrace customers. It seems like a full room!';
 
         exchange
           .response(resp) // respond to the user
