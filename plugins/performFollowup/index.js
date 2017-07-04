@@ -52,7 +52,7 @@ class PerformFollowup {
         exchange
           .response(resp) // respond to the user
           //.setTarget('performFollowup');   
-          .skipFollowUp();
+          .skipFollowUp()
           //return this.davis.pluginManager.run(exchange, 'performFollowup');
           .smartEnd(); // end the conversation if appropriate
       },
