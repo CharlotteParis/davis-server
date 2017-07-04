@@ -4,7 +4,7 @@
  * The DavisWeather class is the core of the plugin and an
  * instance of DavisWeather is what will be loaded into Davis
  */
-class PerformStart {
+class PerformFollowup {
 
   /**
    * The main body of work is done in the constructor.
@@ -16,14 +16,14 @@ class PerformStart {
     // This is where we declare our intents.
     this.intents = {
       // Our intent name
-      performStart: {
+      performFollowup: {
         // A basic description of the intent
-        usage: 'Start Perform',
+        usage: 'Follow up with a question',
 
         // Phrases that will trigger our intent. Note that they will not
         // need to be matched exactly in order for the intent to run.
         phrases: [
-          'Please welcome people at Perform Paris',
+          'Tell us more about today',
         ],
 
         // Lifecycle Events are friendly names for the steps that an intent
@@ -45,20 +45,20 @@ class PerformStart {
     // interface between Davis, a user, and a plugin. The context
     // object holds any state carried over from previous exchanges.
     this.hooks = {
-      'performStart:gatherData': (exchange, context) => null,
-      'performStart:respond': (exchange, context) => {
-        const resp = 'bohnjour ay bee en venoo a Perform Paris. Its great to be here with such fantastic Dynatrace customers. It seems like a full room!';
+      'performFollowup:gatherData': (exchange, context) => null,
+      'performFollowup:respond': (exchange, context) => {
+        const resp = 'Today is a great day to talk about APM! You will know everything about Dynatrace. Enjoy Perform, and talk later!';
 
         exchange
           .response(resp) // respond to the user
           //.setTarget('performFollowup');   
           .skipFollowUp();
           //return this.davis.pluginManager.run(exchange, 'performFollowup');
-          //.smartEnd(); // end the conversation if appropriate
+          .smartEnd(); // end the conversation if appropriate
       },
     };
   }
 }
 
 // export the plugin so it can be used
-module.exports = PerformStart;
+module.exports = PerformFollowup;
